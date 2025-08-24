@@ -1,0 +1,10 @@
+-- INNER JOIN
+SELECT t.Vorname, t.Name, v.Titel
+FROM Teilnehmer t
+JOIN Anmeldung a ON t.TeilnehmerID = a.TeilnehmerID
+JOIN Veranstaltung v ON a.VeranstaltungID = v.VeranstaltungID;
+
+-- LEFT JOIN
+SELECT v.Titel, a.Status
+FROM Veranstaltung v
+LEFT JOIN Anmeldung a ON v.VeranstaltungID = a.VeranstaltungID;

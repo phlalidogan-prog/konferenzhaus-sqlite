@@ -1,0 +1,26 @@
+-- Veranstaltung
+INSERT INTO Veranstaltung VALUES (1, 'IT-Tagung', 'IT', '2025-09-10', '2025-09-12', 'Firma A', 100, 'Deutsch', 'Vor Ort', NULL);
+
+-- Raum
+INSERT INTO Raum VALUES ('A101', 80, 'Audioanlage', 'EG');
+
+-- Teilnehmer
+INSERT INTO Teilnehmer VALUES (1, 'Ali', 'Demir', 'Bosch', '1985-04-12', 'Stuttgart', 'ali@example.com', '0711-123456');
+
+-- Vortragende
+INSERT INTO Vortragende VALUES (1, 'Anna', 'Keller', 'Fraunhofer', 'anna@example.com', 'IT');
+
+-- Vortrag
+INSERT INTO Vortrag VALUES (1, 'IT-Sicherheit', '10:00', 60, 'Überblick', 1);
+
+-- Anmeldung
+INSERT INTO Anmeldung VALUES (1, '2025-08-15', 'bestätigt', NULL, 1, 1);
+
+-- Vortrag_Vortragende
+INSERT INTO Vortrag_Vortragende VALUES (1, 1);
+
+-- Veranstaltung_Raum
+INSERT INTO Veranstaltung_Raum VALUES (1, 'A101');
+
+-- Transfer
+INSERT INTO Transfer VALUES (1, 'Hotel A', '2025-09-09 18:00', 'Shuttle', 'Herr X', 1, NULL);

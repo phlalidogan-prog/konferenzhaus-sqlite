@@ -1,0 +1,79 @@
+CREATE TABLE Veranstaltung (
+  VeranstaltungID   INTEGER PRIMARY KEY,
+  Titel             TEXT,
+  Thema             TEXT,
+  Beginn            TEXT,
+  Ende              TEXT,
+  Organisator       TEXT,
+  max_Teilnehmerzahl INTEGER,
+  Sprache           TEXT,
+  Tagungsart        TEXT,
+  technische_Anforderungen TEXT
+);
+
+CREATE TABLE Raum (
+  Raumnummer        TEXT PRIMARY KEY,
+  Sitzplatzanzahl   INTEGER,
+  Ausstattung       TEXT,
+  Gebaeudeabschnitt TEXT
+);
+
+CREATE TABLE Teilnehmer (
+  TeilnehmerID  INTEGER PRIMARY KEY,
+  Vorname       TEXT,
+  Name          TEXT,
+  Organisation  TEXT,
+  Geburtsdatum  TEXT,
+  Adresse       TEXT,
+  Email         TEXT,
+  Telefonnummer TEXT
+);
+
+CREATE TABLE Vortragende (
+  VortragendeID INTEGER PRIMARY KEY,
+  Vorname       TEXT,
+  Name          TEXT,
+  Institution   TEXT,
+  Email         TEXT,
+  Themengebiet  TEXT
+);
+
+CREATE TABLE Vortrag (
+  VortragID       INTEGER PRIMARY KEY,
+  Titel           TEXT,
+  Uhrzeit         TEXT,
+  Dauer           INTEGER,
+  Abstract        TEXT,
+  VeranstaltungID INTEGER
+);
+
+CREATE TABLE Anmeldung (
+  AnmeldungID     INTEGER PRIMARY KEY,
+  Anmeldedatum    TEXT,
+  Status          TEXT,
+  Zusatzleistungen TEXT,
+  TeilnehmerID    INTEGER,
+  VeranstaltungID INTEGER
+);
+
+CREATE TABLE Vortrag_Vortragende (
+  VortragID     INTEGER,
+  VortragendeID INTEGER,
+  PRIMARY KEY (VortragID, VortragendeID)
+);
+
+CREATE TABLE Veranstaltung_Raum (
+  VeranstaltungID INTEGER,
+  Raumnummer      TEXT,
+  PRIMARY KEY (VeranstaltungID, Raumnummer)
+);
+
+CREATE TABLE Transfer (
+  TransferID      INTEGER PRIMARY KEY,
+  Zieladresse     TEXT,
+  Ankunftszeit    TEXT,
+  Transportmittel TEXT,
+  Ansprechpartner TEXT,
+  TeilnehmerID    INTEGER,
+  VortragendeID   INTEGER
+);
